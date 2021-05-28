@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,4 +16,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+});
+
+Route::post('/auth/save', [MainController::class, 'save'])->name('auth.save');
+
+Route::group(['middleware' => ['autoCheck']], function(){
+    Route::get('/auth/register', [MainController::class, 'register'])->name('auth.register');
+    Route::get('/auth/login', [MainController::class, 'login'])->name('auth.login');
 });
