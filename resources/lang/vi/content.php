@@ -14,6 +14,22 @@
         'we do not recognize your email address' => 'Chúng tôi không nhận ra địa chỉ của bạn',
         'Incorrect password' => 'Mật khẩu không đúng!',
         'English' => 'Tiếng anh',
-        'Vietnamese' => 'Tiếng Việt'
+        'Vietnamese' => 'Tiếng Việt',
+        'Delete' => 'Xóa',
+        'Edit' => 'Sửa',
+        'Completed' => 'Đã hoàn thành',
+        'Incompleted' => 'Chưa hoàn thành',
+        'Status' => 'Trạng thái',
+        'Title' => 'Nội dung',
+        'Add new' => 'Thêm mới',
+        'Daily work' => 'Công việc hằng ngày',
+        'Logout' => 'Đăng xuất',
+        'Todo list' => 'Danh sách công việc',
+        'Add' => 'Thêm',
+        'Back' => 'Quay lại',
+        'Edit' => 'Sửa',
+        'Todo deleted Successfully!' => 'Xóa thành công!',
+        'Todo marked as incomplete!' => 'Chưa hoàn thành!',
+        'Todo marked as complete!' => 'Đã hoàn thành!',
     ];
 ?>

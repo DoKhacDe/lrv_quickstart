@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\TodoController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +16,7 @@ use Illuminate\Support\Facades\Session;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes();
 Route::middleware(['locale'])->group(function () {
     Route::get('/setLocal-{lang}', function($lang) {
         Session::put('lang', $lang);
@@ -22,10 +25,14 @@ Route::middleware(['locale'])->group(function () {
 
 Route::post('/auth/save', [MainController::class, 'createAdmin'])->name('auth.createAdmin');
 Route::post('/auth/check',[MainController::class, 'checkLogin'])->name('auth.checkLogin');
-
+Route::get('/auth/logout',[MainController::class, 'logout'])->name('auth.logout');
+Route::get('/auth/register', [MainController::class, 'register'])->name('auth.register');
+Route::get('/auth/login', [MainController::class, 'login'])->name('auth.login');
 Route::group(['middleware' => ['autoCheck']], function(){
-    Route::get('/auth/register', [MainController::class, 'register'])->name('auth.register');
-    Route::get('/auth/login', [MainController::class, 'login'])->name('auth.login');
-    Route::get('/todolist/index', [MainController::class, 'index'])->name('todolist.index');
+    Route::resource('todos', TodoController::class);
+    Route::get('{id}/todos', [TodoController::class, 'completed']);
+    Route::fallback(function() {
+        return 'Có lỗi ở đâu đó';
+    });
 });
 });

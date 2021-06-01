@@ -7,6 +7,7 @@ use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class MainController extends Controller
 {
@@ -38,10 +39,10 @@ class MainController extends Controller
         $admin = Admin::where('email', $email)->first();
         if ($admin) {
             $password = $admin->password;
-            if (Hash::check($request->password, $password)){
-                $request->session()->put('LoggedUser', $admin->id);
-                return redirect()->route('todolist.index');
-            } else {
+            if (Hash::check($request->password, $password)) {
+                Auth::login($admin);
+                return redirect()->route('todos.index');
+            } else { 
                 return back()->with('fail', __('content.Incorrect password'));
             }
         }
@@ -50,5 +51,11 @@ class MainController extends Controller
     public function index() 
     {
         return view('todolist.index');
+    }
+
+    public function logout() 
+    {
+        Auth::logout();
+        return redirect()->route('auth.login');
     }
 }

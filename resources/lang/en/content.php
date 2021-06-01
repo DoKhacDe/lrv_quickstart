@@ -14,6 +14,22 @@
         'we do not recognize your email address' => 'we do not recognize your email address',
         'Incorrect password' => 'Incorrect password!',
         'English' => 'English',
-        'Vietnamese' => 'Vietnamese'
+        'Vietnamese' => 'Vietnamese',
+        'Delete' => 'Delete',
+        'Edit' => 'Edit',
+        'Completed' => 'Completed',
+        'Incompleted' => 'Incompleted',
+        'Status' => 'Status ',
+        'Title' => 'Title',
+        'Add new' => 'Add new',
+        'Daily work' => 'Daily work',
+        'Logout' => 'Logout',
+        'Todo list' => 'Todo list',
+        'Add' => 'Add',
+        'Back' => 'Back',
+        'Edit' => 'Edit',
+        'Todo deleted Successfully!' => 'Todo deleted Successfully!',
+        'Todo marked as incomplete!' => 'Todo marked as incomplete!',
+        'Todo marked as complete!' => 'Todo marked as complete!',
     ];
 ?>
